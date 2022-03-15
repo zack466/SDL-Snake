@@ -7,7 +7,7 @@ include_directories(${SDL2_INCLUDE_DIRS})
 
 find_package(PkgConfig REQUIRED)
 
-pkg_check_modules(SDL2_TTF REQUIRED sdl2_ttf)
+pkg_check_modules(SDL2_TTF REQUIRED SDL2_ttf)
 include_directories(${SDL2_TTF_include_dirs})
 link_directories(${SDL2_TTF_library_dirs})
 

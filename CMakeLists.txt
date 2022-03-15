@@ -15,9 +15,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_library(Bitset src/bitset.c)
 add_library(Ringbuf src/ringbuf.c)
+add_library(Pixelgrid src/pixelgrid.c)
+add_library(Direction src/direction.c)
 
 add_executable(Snake src/snake.c)
-target_link_libraries(Snake Bitset Ringbuf ${SDL2_TTF_LIBRARIES} ${SDL2_LIBRARIES})
+target_link_libraries(Snake Bitset Ringbuf Pixelgrid Direction ${SDL2_TTF_LIBRARIES} ${SDL2_LIBRARIES})
 
 add_custom_target(
   run

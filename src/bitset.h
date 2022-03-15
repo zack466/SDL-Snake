@@ -2,8 +2,6 @@
 #include <stdbool.h>
 
 typedef struct Bitset {
-  Uint32 length;
-  Uint64 *data;
 } Bitset;
 
 Bitset *Bitset_alloc(Uint32 length);

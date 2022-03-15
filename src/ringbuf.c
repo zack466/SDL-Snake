@@ -1,5 +1,6 @@
 #include <SDL_stdinc.h>
 
+// technically, this is more of a circular queue than a ring buffer
 typedef struct Ringbuf {
   Uint32 *data;
   Uint32 length;

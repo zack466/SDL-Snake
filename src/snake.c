@@ -15,6 +15,7 @@ static Uint32 score = 0;
 
 static bool game_over = false;
 static bool score_displayed = false;
+static bool game_started = false;
 
 static Uint32 food_x;
 static Uint32 food_y;
@@ -115,22 +116,25 @@ main(int argc, char **argv)
         switch (event.key.keysym.scancode) {
         case SDL_SCANCODE_Q:
           goto exit;
-
         case SDL_SCANCODE_LEFT:
         case SDL_SCANCODE_A:
           Direction_enqueue(inputs, Direction_Left);
+          game_started = true;
           break;
         case SDL_SCANCODE_RIGHT:
         case SDL_SCANCODE_D:
           Direction_enqueue(inputs, Direction_Right);
+          game_started = true;
           break;
         case SDL_SCANCODE_DOWN:
         case SDL_SCANCODE_S:
           Direction_enqueue(inputs, Direction_Down);
+          game_started = true;
           break;
         case SDL_SCANCODE_UP:
         case SDL_SCANCODE_W:
           Direction_enqueue(inputs, Direction_Up);
+          game_started = true;
           break;
         default:
           break;
@@ -161,6 +165,14 @@ main(int argc, char **argv)
       score_displayed = true;
       SDL_RenderPresent(renderer);
 
+      continue;
+    }
+
+    if (!game_started) {
+      SDL_RenderClear(renderer);
+      SDL_RenderCopy(renderer, Pixelgrid_texture(grid), NULL, NULL);
+      render_text(renderer, font, "WASD or Arrow Keys to start", WINDOW_WIDTH, WINDOW_HEIGHT, true);
+      SDL_RenderPresent(renderer);
       continue;
     }
 

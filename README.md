@@ -1,5 +1,7 @@
 # SDL-Snake 
 
+![Snake Demo](snake_demo.gif)
+
 ## Build and Run
 
 Make sure `sdl2` and `sdl2_ttf` are installed.

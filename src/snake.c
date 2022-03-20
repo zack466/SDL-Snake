@@ -89,8 +89,8 @@ main(int argc, char **argv)
   // constant time access to whether a particular square is occupied by a snake
   Bitset *snake_pos = Bitset_alloc(NUM_PIXELS);
 
-  Ringbuf_append(snake_x, 10);
-  Ringbuf_append(snake_y, 10);
+  Ringbuf_append(snake_x, WIDTH / 2);
+  Ringbuf_append(snake_y, HEIGHT / 2);
   Bitset_set(snake_pos, 10 + 10 * WIDTH);
 
   place_food(snake_pos);
